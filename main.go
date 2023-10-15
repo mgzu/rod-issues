@@ -12,7 +12,9 @@ func main() {
 		MustLaunch()
 	browser := rod.New().
 		ControlURL(u).
-		MustConnect()
+		MustConnect().
+		// disable default viewport
+		NoDefaultDevice()
 	browser.MustPage("chrome://new-tab-page").MustWaitLoad()
 	time.Sleep(10 * time.Minute)
 }
